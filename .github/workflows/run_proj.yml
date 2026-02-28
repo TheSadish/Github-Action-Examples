@@ -40,7 +40,7 @@ jobs:
                 echo "Deployment Succeeded"
 
     Preview:
-        needs: [Build]
+        needs: [Build, Deploy]
         runs-on: ubuntu-latest        
         steps:  
             - name: Checkout code
@@ -50,7 +50,7 @@ jobs:
               working-directory: "04 Practice Project (Start)"
               run: npm ci
 
-            - name: Build
+            - name: Preview
               working-directory: "04 Practice Project (Start)"
               run: npm run preview
 
