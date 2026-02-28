@@ -1,14 +1,19 @@
 
-name: Issue workflow
+name: Lets see events
 
 on:
     issues:
         types: opened
+    pull_request:
+        types: [opened, edited]
+        branches:
+            - 'develop'
+    workflow_dispatch:
 
 jobs:
     Get-Issue:
         runs-on : ubuntu-latest
         steps:
-          - name: Get Issue Details
+          - name: Get Event Details
             run: echo "${{ toJson(github.event) }}"
                 
