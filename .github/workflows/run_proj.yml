@@ -1,5 +1,6 @@
 name: Run Project
-on: [push, workflow_dispatch]
+on:
+  workflow_dispatch:
 
 jobs:
     Build:
@@ -56,4 +57,3 @@ jobs:
                 npm run preview &
                 sleep 10
                 kill $!
-
