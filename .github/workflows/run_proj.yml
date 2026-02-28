@@ -40,7 +40,7 @@ jobs:
                 echo "Deployment Succeeded"
 
     Preview:
-        needs: [Build, Deploy]
+        needs: [Deploy]
         runs-on: ubuntu-latest        
         steps:  
             - name: Checkout code
