@@ -9,5 +9,6 @@ jobs:
               uses: actions/checkout@v6
 
             - name: Install Dependencies
+              working-directory: "04 Practice Project (Start)"
               run: npm ci
               
