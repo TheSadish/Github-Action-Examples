@@ -12,3 +12,24 @@ jobs:
               working-directory: "04 Practice Project (Start)"
               run: npm ci
               
+            - name: Lint
+              working-directory: "04 Practice Project (Start)"
+              run: npm run lint
+              
+            - name: Test
+              working-directory: "04 Practice Project (Start)"
+              run: npm run test
+    Deploy:
+        runs-on: ubuntu-latest        
+        steps:  
+            - name: Checkout code
+              uses: actions/checkout@v6
+
+            - name: Build
+              working-directory: "04 Practice Project (Start)"
+              run: npm run build
+
+            - name: Deploy
+              run: |
+                echo "Deploying to server "
+                echo "Deployment Succeeded"
