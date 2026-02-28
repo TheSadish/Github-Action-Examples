@@ -5,6 +5,9 @@ jobs:
     Build:
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout repo
+              uses: actions/checkout
+
             - name: Install Dependencies
               run: npm ci
               
