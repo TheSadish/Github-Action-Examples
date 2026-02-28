@@ -52,5 +52,8 @@ jobs:
 
             - name: Preview
               working-directory: "04 Practice Project (Start)"
-              run: npm run preview
+              run: |
+                npm run preview
+                sleep 10
+                kill $!
 
