@@ -10,7 +10,7 @@ on:
             - 'develop'
     push:
         branches:
-            - 'main'
+            - 'develop'
         # paths:
         #     - 'force-app/**'  # multiple level deep
     workflow_dispatch:
