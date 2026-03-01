@@ -1,6 +1,8 @@
 name: Run Project
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
 
 jobs:
     Build:
@@ -20,6 +22,18 @@ jobs:
             - name: Test
               working-directory: "04 Practice Project (Start)"
               run: npm run test
+
+            - name: Creating sample artifact
+              run: echo "I am creating an artifact" > 1.txt
+
+            - name: Generate Artifact
+              uses: actions/upload-artifact@v7
+              with: 
+                name: Deploy-Package
+                path: |
+                  1.txt
+                  package.json
+
     Deploy:
         needs: [Build]
         runs-on: ubuntu-latest        
