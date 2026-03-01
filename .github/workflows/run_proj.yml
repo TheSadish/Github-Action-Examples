@@ -24,14 +24,16 @@ jobs:
               run: npm run test
 
             - name: Creating sample artifact
-              run: echo "I am creating an artifact" > 1.txt
+              run: echo "This is build artifact" > 1.txt
 
             - name: Generate Artifact
               uses: actions/upload-artifact@v7
               with: 
                 name: Deploy-Package
-                path: 1.txt
-                archive: false
+                path: |
+                  1.txt
+                  package.json
+                # archive: false # This will be helpful when we want to display some thing in browser
 
     Deploy:
         needs: [Build]
@@ -47,11 +49,16 @@ jobs:
             - name: Build
               working-directory: "04 Practice Project (Start)"
               run: npm run build
-
+            
+            - name: Get build artifacts
+              uses: actions/download-artifact@v8
+              with:
+                name: Deploy-Package
+            
             - name: Deploy
               run: |
                 echo "Deploying to server "
-                echo "Deployment Succeeded"
+                echo 1.txt
 
     Preview:
         needs: [Build, Deploy]
