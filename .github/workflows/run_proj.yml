@@ -33,6 +33,7 @@ jobs:
                 path: |
                   1.txt
                   package.json
+                archive: false
 
     Deploy:
         needs: [Build]
